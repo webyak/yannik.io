@@ -30,7 +30,7 @@ const Work = () => (
         />
         <WorkItem
           title="Flight Search"
-          description="A React Motion experiment"
+          description="An animation experiment"
           link="/flights/"
         />
         <WorkItem
