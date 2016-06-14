@@ -11,17 +11,6 @@ import { resetFontSmooth } from '../styling/common_styles.js';
 import Wrap from './wrap.js';
 import MainNavigation from './main_navigation';
 
-// const typekitScript = `
-//   (function(d) {
-//     var config = {
-//       kitId: 'shv6xct',
-//       scriptTimeout: 5000,
-//       async: false
-//     },
-//     h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
-//   })(document);
-// `;
-
 const selectionStyle = {
   color: DARKGRAYBLUE,
   background: YELLOW,
@@ -50,12 +39,15 @@ const Layout = ({ children }) => (
         },
       ]}
       script={[
-        { src: 'https://use.typekit.net/shv6xct.js' },
-        { innerHTML: 'try{Typekit.load({ async: false });}catch(e){}' },
+        { src: '//use.typekit.net/shv6xct.js' },
+        { innerHTML: 'try{Typekit.load();}catch(e){}' },
       ]}
     />
     <Style
       rules={{
+        '.wf-loading': {
+          display: 'none',
+        },
         'html, body': {
           width: '100%',
           height: '100%',
