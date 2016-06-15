@@ -20,6 +20,19 @@ const placeholderStyle = {
   opacity: 1,
 };
 
+/* eslint-disable max-len */
+const typekitScript = `
+  (function(d) {
+    var config = {
+      kitId: 'shv6xct',
+      scriptTimeout: 3000,
+      async: false
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+`;
+/* eslint-enable max-len */
+
 const Layout = ({ children }) => (
   <StyleRoot id="Layout" radiumConfig={{}}>
     <Helmet
@@ -39,14 +52,16 @@ const Layout = ({ children }) => (
         },
       ]}
       script={[
-        { src: '//use.typekit.net/shv6xct.js' },
-        { innerHTML: 'try{Typekit.load();}catch(e){}' },
+        { innerHTML: typekitScript },
       ]}
     />
     <Style
       rules={{
         '.wf-loading': {
           display: 'none',
+        },
+        '.wf-inactive': {
+          display: 'block !important',
         },
         'html, body': {
           width: '100%',
