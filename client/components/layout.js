@@ -45,6 +45,18 @@ const Layout = ({ children }) => (
       ]}
       link={[
         {
+          rel: 'dns-prefetch',
+          href: '//use.typekit.net',
+        },
+        {
+          rel: 'dns-prefetch',
+          href: '//p.typekit.net',
+        },
+        {
+          rel: 'dns-prefetch',
+          href: '//ping.typekit.net',
+        },
+        {
           rel: 'shortcut icon',
           type: 'image/png',
           href: require('../assets/favicon.png'),
